@@ -7,7 +7,7 @@ import connectionModel from "./connectionModel.js";
 
 dotenv.config();
 
-mongoose
+mongoose 
   .connect("mongodb://localhost:27017/tele")
   .then(() => console.log("mongodb connected"))
   .catch((error) => console.log(error));
