@@ -8,7 +8,7 @@ import connectionModel from "./connectionModel.js";
 dotenv.config();
 
 mongoose
-  .connect("mongodb://localhost:27017/tele")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("mongodb connected"))
   .catch((error) => console.log(error));
 
@@ -30,6 +30,8 @@ async function sendTelegramMessage(message, chatId) {
   }
 }
 
+
+
 app.get("/", (req, res) => {
   res.send("link working");
 });
@@ -50,7 +52,7 @@ app.post("/lightspeed-webhook", async (req, res) => {
   });
 });
 
-// bot functionality  sunvish/lightspeed-saleAlert-bot
+// bot functionality  sunvish/lightspeed-saleAlert-botw
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
